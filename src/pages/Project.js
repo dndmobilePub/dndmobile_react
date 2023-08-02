@@ -131,7 +131,7 @@ const Project = () => {
 								slidesPerView: 6.1,
 								spaceBetween: 74,
 								loop: true,
-								loopedSlides: 1,
+								loopedSlides: 3,
 								speed: 1000,
 								autoplay: {
 									delay: 3500,
