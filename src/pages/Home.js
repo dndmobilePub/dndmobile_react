@@ -69,23 +69,23 @@ const Home = ({ isMain }) => {
         });
     });
 
-    let links = gsap.utils.toArray(".main-indicator-wrap a");
-    links.forEach(a => {
-        let element = document.querySelector(a.getAttribute("href")),
-            linkST = ScrollTrigger.create({
-                trigger: element,
-                start: "top top"
-            });
-        ScrollTrigger.create({
-            trigger: element,
-            start: "top center",
-            end: "bottom center",
-            onToggle: self => self.isActive && setActive(a)
-        });
-        a.addEventListener("click", e => {
-            e.preventDefault();
-            gsap.to(window, { duration: 1, scrollTo: linkST.start, overwrite: "auto" });
-        });
+    const links = gsap.utils.toArray('.main-indicator-wrap a');
+    links.forEach((a) => {
+      let element = document.querySelector(a.getAttribute('href'));
+      let linkST = ScrollTrigger.create({
+        trigger: element,
+        start: 'top top',
+      });
+      ScrollTrigger.create({
+        trigger: element,
+        start: 'top center',
+        end: 'bottom center',
+        onToggle: (self) => self.isActive && setActive(a),
+      });
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: linkST.start, behavior: 'smooth' });
+      });
     });
 
     function setActive(link) {
