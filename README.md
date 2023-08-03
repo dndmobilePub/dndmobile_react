@@ -10,7 +10,7 @@ react에서 제공하는 설치 명령어인 CRA(create-react-app)을 사용하�
 4. 본인이 사용하는 IDE로 해당 프로젝트가 설치된 폴더를 연다. (vscode 추천)
 5. 터미널을 열고 npm install 혹은 yarn 입력후 엔터
 6. 중간에 추가로 설치를 묻는 게 나오면 y를 입력후 마저 설치를 진행
-7. 설치가 완료되면 npm start, yarn start를 통해 localhost:포트번호 에서 확인 가능
+7. 설치가 완료되면 npm start 혹은 yarn start를 통해 localhost:포트번호 에서 확인 가능
 
 #### 폴더 구조
 폴더 구조는 프로젝트의 성격에 따라 다르지만 기존 홈페이지의 구조에서 크게 벗어나지 않은 형태로 작업하였습니다.
