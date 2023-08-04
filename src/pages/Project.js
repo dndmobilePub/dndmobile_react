@@ -1,8 +1,9 @@
+import 'swiper/css';
 import $ from 'jquery';
 import { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
+import TabMenu from '../components/ui/TabMenu';
 
 const Project = () => {
 	const swiperRef = useRef(null)
@@ -66,38 +67,6 @@ const Project = () => {
 				$nextToggleContents.slideUp();
 			}
 		})
-
-		/**
-		 * ==============================+
-		 * 탭
-		 * ==============================+
-		 */
-		$(".tab-top > ul > li").on('click',function() {
-			var tabIdx = $(this).index();
-			$(this).addClass("on").siblings().removeClass("on");
-			$(".tab-detail").eq(tabIdx).addClass("on").siblings().removeClass("on");
-			$(".tab-detail").fadeOut(0);
-			$(".tab-detail").eq(tabIdx).fadeIn(600);
-		});
-
-		function tabScollHorizen() {
-			if (tabScollHorizen.read) {
-				return;
-			}
-			tabScollHorizen = this.scrollWidth - (Math.floor(this.scrollLeft)) === this.clientWidth;
-			if(tabScollHorizen === true ){
-					$('.bg.hide-pc').css('display','none');
-					$('.tab-top ul').css('justify-content','');
-			}else{
-					$('.bg.hide-pc').css('display','block');
-					$('.tab-top ul').css('justify-content','flex-start');
-			}
-		}
-
-		if($(".tab-top ul").length > 0) {
-			var tabList = document.querySelector(".tab-top ul");
-			tabList.onscroll = tabScollHorizen;
-		}		
 	},[])
   return (
     <section className="project-wrap">
@@ -244,25 +213,7 @@ const Project = () => {
 				</div>
 			</div>
 				<div className="project-box">
-					<div className="tab-top">
-						<ul>
-							<li>
-								<p>2023</p>
-							</li>
-							<li className="on">
-								<p>2022</p>
-							</li>
-							<li>
-								<p>2021</p>
-							</li>
-							<li>
-								<p>2020</p>
-							</li>
-							<li>
-								<p>2019</p>
-							</li>
-						</ul>
-					<div className="bg hide-pc" style={{display: 'none'}}></div>
+					<TabMenu />
 				</div>
 				<div className="tab-detail tab-2023">
 					<div className="accordion-wrap">
@@ -891,7 +842,6 @@ const Project = () => {
 						</dl>
 					</div>
 				</div>
-			</div>
 		</section>
   )
 }
