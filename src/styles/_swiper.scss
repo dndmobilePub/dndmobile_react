@@ -83,9 +83,9 @@
   height: auto;
 }
 .swiper-container-autoheight .swiper-wrapper {
-  -webkit-box-align: start;
+  -webkit-box-align: flex-start;
   -webkit-align-items: flex-start;
-  -ms-flex-align: start;
+  -ms-flex-align: flex-start;
   align-items: flex-start;
   -webkit-transition-property: height, -webkit-transform;
   transition-property: height, -webkit-transform;
@@ -404,8 +404,8 @@ button.swiper-pagination-bullet {
 .swiper-scrollbar {
   border-radius: 10px;
   position: relative;
-  -ms-touch-action: none;
   touch-action: none;
+  -ms-touch-action: none;
   background: rgba(0, 0, 0, 0.1);
 }
 .swiper-container-horizontal > .swiper-scrollbar {
@@ -615,6 +615,6 @@ button.swiper-pagination-bullet {
 }
 .swiper-container-coverflow .swiper-wrapper {
   /* Windows 8 IE 10 fix */
-  -ms-perspective: 1200px;
   perspective: 1200px;
+  -ms-perspective: 1200px;
 }

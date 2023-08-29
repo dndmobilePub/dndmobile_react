@@ -1,55 +1,28 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 export const Indicator = () => {
   return (
-    <section className="main-indicator-wrap">
-			<div>
-				<a href="#intro" className="indi-white active" id="intro-indi">
-					<span></span>
-					<em>DNDMOBILE</em>
-				</a>
+    <div className="main-indicator-wrap white">
+			{/* <!-- DNDMOBILE --> */}
+			<a href="#intro" className="indi-white active" id="intro-indi"></a>
+			{/* <!-- SC제일은행 --> */}
+			<a href="#sc_aged"></a>
+			{/* <!-- SC제일은행 --> */}
+			<a href="#two" className="indi-white"></a>
+			{/* <!-- KB국민은행 --> */}
+			<a href="#one"></a>
+			{/* <!-- CJ대한통운 --> */}
+			<a href="#three" className="cj-white"></a>
+			{/* <!-- 우리은행 --> */}
+			<a href="#five"></a>
+			{/* <!-- 우리은행 --> */}
+			<a href="#six"></a>
+			{/* <!-- 우리은행 --> */}
+			<a href="#four" className="indi-white"></a>
+			<span className="current-circle"></span>
+			<div className="num-box white">
+				<span className="current">01</span>/<span>08</span>
 			</div>
-			<div>
-				<a href="#sc_aged">
-					<span></span>
-					<em>SC제일은행</em>
-				</a>
-			</div>
-			<div>
-				<a href="#two" className="indi-white">
-					<span></span>
-					<em>SC제일은행</em>
-				</a>
-			</div>
-			<div>
-				<a href="#one">
-					<span></span>
-					<em>KB국민은행</em>
-				</a>
-			</div>
-			<div>
-				<a href="#three" className="cj-white">
-					<span></span>
-					<em>CJ대한통운</em>
-				</a>
-			</div>
-			<div>
-				<a href="#five">
-					<span></span>
-					<em>우리은행</em>
-				</a>
-			</div>
-			<div>
-				<a href="#six">
-					<span></span>
-					<em>우리은행</em>
-				</a>
-			</div>
-			<div>
-				<a href="#four" className="indi-white">
-					<span></span>
-					<em>우리은행</em>
-				</a>
-			</div>
-		</section>
+		</div>
   )
 }
 

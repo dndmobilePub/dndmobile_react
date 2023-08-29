@@ -13,13 +13,13 @@ function MapComponent() {
       }}>
         <Marker 
         position={{ lat: 37.556107, lng: 126.921539 }} 
-        icon={{url: '../assets/images/logo_marker.svg', scale: 5}}
+        icon={{url: '../assets/images/logo_marker.svg', scale: 1, size: {width: 40, height: 40}}}
         onClick={() => setInfoWindowOpen(true)}
         />
         {infoWindowOpen && (
           <InfoWindow
             onCloseClick={() => setInfoWindowOpen(false)}
-            position={{ lat: 37.556107, lng: 126.921539 }}
+            position={{ lat: 37.556277, lng: 126.921539 }}
           >
             <div><p>dndmobile</p></div>
           </InfoWindow>

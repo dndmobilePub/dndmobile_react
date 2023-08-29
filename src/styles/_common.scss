@@ -68,6 +68,15 @@ img {
     }
 }
 
+button{
+	background: inherit ;
+	border:none; 
+	box-shadow:none; 
+	border-radius:0;
+	padding:0; 
+	overflow:visible; 
+	cursor:pointer
+}
 
 .mt160 {
     @include vw-convert-pc(margin-top, 160);
@@ -103,19 +112,17 @@ img {
 
 		}
 
-
-
 		.ico{
 			display: inline-block;
 			vertical-align: middle;
 
 			.fill-black{
-				fill: #fff;
+				fill: #222;
 			}
 
 
 			.stroke-black{
-				stroke: #fff;
+				stroke: #222;
 			}
 
 			:hover{
@@ -134,24 +141,69 @@ img {
 		.main_logo{
 
 			a{
-				color:#fff;
+				color:#222;
 				font-weight: 500;
 				display: inherit;
 
 				.ico{
 					width: 34px;
 					height: 34px;
-					margin-right: 10px;
+					margin-right: 8px;
+
+					svg {
+						// shape-rendering: geometricPrecision;
+					}
 
 					.fill-black{
-	
-						fill: #fff;
-	
+						fill: #222;
+					}
+
+					.stroke-black {
+						stroke: #222;
 					}
 				}
-
 			}
 		
+			&.white {
+				a{
+					color:#fff;
+
+					.fill-black{
+						fill: #fff;
+					}
+
+					.stroke-black {
+						stroke: #fff;
+					}
+
+					span {
+						text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+					}
+				}
+			}
+		}
+
+		.top-nav {
+			&.white {
+				.fill-black{
+					fill: #fff;
+				}
+
+				.stroke-black {
+					stroke: #fff;
+				}
+
+				:hover{
+
+					.fill-black{
+						fill: #D91550;
+					}
+	
+					.stroke-black{
+						stroke: #D91550;
+					}
+				}
+			}
 		}
 	}
 
@@ -161,11 +213,6 @@ img {
 	}
 
 }
-
-
-
-
-
 
 header {
 	width: 100%;
@@ -182,6 +229,45 @@ header {
 		justify-content: flex-start;
 		padding: 44px 60px;
 
+		.top-nav{
+			.top_hide{
+
+				display: none;
+				padding-right: 10px;
+				span{
+					color:#E30D3F
+				}
+
+			}		
+
+		}
+
+		.ico{
+			display: inline-block;
+			vertical-align: middle;
+
+			.fill-black{
+				fill: #222;
+			}
+
+
+			.stroke-black{
+				stroke: #222;
+			}
+
+			:hover{
+
+				.fill-black{
+					fill: #E30D3F;
+				}
+
+				.stroke-black{
+					stroke: #E30D3F;
+				}
+			}
+
+		}
+
 		.logo {
 			&--black {
 				display: flex;
@@ -191,11 +277,12 @@ header {
 					@include vw-font-size-pc(24);
 					display: flex;
 					align-items: center;
+					font-weight: 500;
 
 					.ico {
 						width: 34px;
 						height: 34px;
-						margin-right: 10px;
+						margin-right: 8px;
 
 						img {
 							object-fit: contain;
@@ -233,6 +320,7 @@ header {
 		}
 
 		.top-nav {
+			
 			&--container {
 				margin-left: auto;
 
@@ -375,20 +463,30 @@ header {
 						transition: transform 300ms ease-in-out 0s;
 						position: relative;
 
+						a{
+							span{
+								-webkit-text-stroke-color:#fff;
+							}
+						}
+						a:hover,a:focus,a:active{
+							span{
+								-webkit-text-stroke-color:#fff;
+							}
+						}
 						span{
 							//font-size: 80px;
 							font-weight: 900;
-  						text-align: center;
-  						cursor: pointer;
-  						-webkit-text-stroke-color: white;
-  						-webkit-text-stroke-width: 0.01em;
-  						-webkit-text-fill-color: transparent;
-  						-webkit-background-clip: text;
-  						background-repeat: no-repeat;
-  						-webkit-transition: background-size 0.5s cubic-bezier(0.67, 0.01, 0.15, 0.98);
-  						transition: background-size 0.5s cubic-bezier(0.67, 0.01, 0.15, 0.98);
+							text-align: center;
+							cursor: pointer;
+							-webkit-text-stroke-color: #fff;
+							-webkit-text-stroke-width: 0.01em;
+							-webkit-text-fill-color: transparent;
+							-webkit-background-clip: text;
+							background-repeat: no-repeat;
+							-webkit-transition: background-size 0.3s cubic-bezier(0.67, 0.01, 0.15, 0.98);
+							transition: background-size 0.3s cubic-bezier(0.67, 0.01, 0.15, 0.98);
 						}
-
+	
 						.box {
 							background-image: linear-gradient(
 								135deg,
@@ -587,38 +685,59 @@ header {
 .btn-top {
 	display: none;
 	position: fixed;
-	bottom: 188px;
-	right: 70px;
+	bottom: 80px;
+	right: 60px;
 	z-index:100;
-  width:48px;
-  height:48px;
+  width:36px;
+  height:36px;
 	border: none;
+	background: none;
 	outline: none;
 	cursor: pointer;
-	padding: 12px;
-	border-radius: 50%;
-	background-color: #1f1f1f;
+	
+	// path {
+	// 	&:first-child {
+	// 		fill: #222;
+	// 	}
+	// }
 
-	&.white{
-		background-color: #fff;
-	}
+	// path:last-child {
+	// 	&:last-child {
+	// 		stroke: #fff;
+	// 	}
+	// }
+
+	// &.white{
+	// 	path {
+	// 		&:first-child {
+	// 			fill: #fff;
+	// 		}
+	// 	}
+	
+	// 	path:last-child {
+	// 		&:last-child {
+	// 			stroke: #222;
+	// 		}
+	// 	}
+	// }
+
 	 /*
     &:hover {
 				background-color: #222222;
     }
 		*/
-		.quick_btn{
-			path{
-				fill:none;	
-				stroke: #fff;
-			}
-		} 
+		// .quick_btn{
+		// 	path{
+		// 		fill:none;	
+		// 		stroke: #fff;
+		// 	}
+		// } 
 		
-		.quick_btn.white{
-			path{
-				stroke: #1f1f1f;
-			}
-		}
+		// .quick_btn.white{
+		// 	path{
+		// 		stroke: #1f1f1f;
+		// 	}
+		// }
 
 }
 
@@ -637,26 +756,25 @@ header {
 				stroke-width: 0.7px;
 			}
 		}
-		&.white {
-			.hamburger {
-				path {
-					stroke: #fff;
-				}
-			}
-		}
-		&.active {
-			.hamburger {
-				path {
-					stroke: #fff;
-				}
-			}
-		}
+		// &.white {
+		// 	.hamburger {
+		// 		path {
+		// 			stroke: #222;
+		// 		}
+		// 	}
+		// }
+		// &.active {
+		// 	.hamburger {
+		// 		path {
+		// 			stroke: #222;
+		// 		}
+		// 	}
+		// }
 	}
 
 	//메인 헤더 추가(mobile)
 .main {
 
-  
 	.active{
 
 		.logo--black{
@@ -675,7 +793,9 @@ header {
 	.menu-toggle {
 		top: 13px;
 		right: 18px;
+
 		&.active{
+
 			.hamburger{
 				width: 30px;
 				height: 30px;
@@ -716,20 +836,26 @@ header {
 				stroke: #fff;
 			}
 		}
+
 		.main_logo{
+
 			a{
 				color:#fff;
 				font-weight: 500;
 				display: inherit;
+
 				.ico{
 					width: 54px;
 					height: 54px;
 					margin-right: 16px;
+
 					.fill-black{
 						fill: #fff;
 					}
 				}
+
 			}
+		
 		}
 	}
 
@@ -845,15 +971,46 @@ header {
 
 		&--inner {
 			align-items: flex-start;
-			padding: 28% 60px 0;
+			@include vw-convert-mo(padding, 346 30 50 30);
+			// padding: 28% 60px 0;
+
+			.main-menu{
+				li{
+					a{
+						span{
+							-webkit-text-fill-color: transparent;
+						}
+					}
+					a:hover,a:focus,a:active{
+						span{
+							-webkit-text-fill-color: #fff;
+						}
+					}
+				}
+			}
 
 			nav {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				width: 100%;
+				height: 100%;
 
 				.main {
 					&-menu {
+						@include vw-convert-mo(padding-left, 112);
+
 						li {
+							display: inline-block;
+
 							a {
-								@include vw-font-size-mo(60);
+								@include vw-font-size-mo(68);
+								@include vw-convert-mo(letter-spacing, 3.4);
+								font-weight: 500;
+							}
+							
+							span {
+								-webkit-text-stroke-width: 0.02em;
 							}
 
 							.count{
@@ -861,8 +1018,9 @@ header {
 								background: #E30D3F;
 								box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 								display: flex;
+								@include vw-convert-mo(padding, 5 15);
 								padding: 5px 15px;
-								top: -22px;
+								@include vw-convert-mo(top, -35);
 								right: -36px;
 								width: 54px;
 								height: inherit;
@@ -879,6 +1037,29 @@ header {
 								}
 							}
 
+							+ li {
+								@include vw-convert-mo(margin-top, 72);
+							}
+						}
+
+					}
+				}
+
+				.bot-menu {
+					display: flex;
+					justify-content: space-between;
+					z-index: 1;
+
+					li:last-child {
+						
+						&:last-child {
+							a {
+								display: flex;
+								align-items: center;
+								color: #E30D3F;
+								@include vw-font-size-mo(28);
+								font-weight: 400;
+							}
 						}
 					}
 				}
@@ -907,7 +1088,7 @@ header {
 	.footer {
 		flex-direction: column;
 		align-items: center;
-		padding: 48px 40px;
+		@include vw-convert-mo(padding, 48 40);
 		color: #222;
 		background: #F3F3F3;
 
@@ -920,7 +1101,7 @@ header {
 				display: block;
 				@include vw-font-size-mo(26);
 				font-weight:400;
-				line-height:1.5;
+				line-height:1;
 				//&:first-child {
 				//	@include vw-convert-mo(margin-top, 60);
 				//}
@@ -935,7 +1116,18 @@ header {
 		}
 	}
 	.btn-top {
-		right: 20px;
-		bottom: 20px;
+		@include vw-convert-mo(right, 20);
+		@include vw-convert-mo(bottom, 20);
+		// right: 20px;
+		// bottom: 20px;
+		@include vw-convert-mo(width, 97);
+		@include vw-convert-mo(height, 97);
+
+		svg {
+			width: 100%;
+			height: 100%;
+			// @include vw-convert-mo(width, 97);
+			// @include vw-convert-mo(height, 97);
+		}
 	}
 }

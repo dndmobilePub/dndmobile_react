@@ -1,8 +1,9 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import Header from '../components/common/header';
-import Footer from '../components/common/footer';
+import Header from '../components/common/Header';
+import Footer from '../components/common/Footer';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
+import { WhiteProvider } from '../store/WhiteContext';
 
 const MainLayout = () => {
   const location = useLocation();
@@ -11,19 +12,6 @@ const MainLayout = () => {
   const secondSlashIndex = pathname.indexOf('/', 1);
   const extractedPath = firstSlashIndex !== -1 && secondSlashIndex !== -1 ? pathname.substring(firstSlashIndex + 1, secondSlashIndex) : pathname.substring(firstSlashIndex + 1);
   const [title,setTitle] = useState('');
-  // const [scrollTop, setScrollTop] = useState(0);
-
-  // useEffect(() => {
-  //   function handleScroll() {
-  //     setScrollTop(window.pageYOffset);
-  //     console.log('scrollTop : ',scrollTop)
-  //   }
-
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
 
   useEffect(()=>{
     switch (extractedPath) {
@@ -51,8 +39,10 @@ const MainLayout = () => {
           <title>{title}</title>
         </Helmet>
       </HelmetProvider>
-      <Header/>
-      <Outlet />
+      <WhiteProvider>
+        <Header/>
+        <Outlet />
+      </WhiteProvider>
       <Footer/>
     </>
   );
