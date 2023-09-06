@@ -1,37 +1,40 @@
-import { Outlet, useLocation } from 'react-router-dom';
-import Header from '../components/common/Header';
-import Footer from '../components/common/Footer';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
-import { useEffect, useState } from 'react';
-import { WhiteProvider } from '../store/WhiteContext';
+import { Outlet, useLocation } from "react-router-dom";
+import Header from "../components/common/Header";
+import Footer from "../components/common/Footer";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import { useEffect, useState } from "react";
+import { WhiteProvider } from "../store/WhiteContext";
 
 const MainLayout = () => {
   const location = useLocation();
   const pathname = location.pathname;
-  const firstSlashIndex = pathname.indexOf('/');
-  const secondSlashIndex = pathname.indexOf('/', 1);
-  const extractedPath = firstSlashIndex !== -1 && secondSlashIndex !== -1 ? pathname.substring(firstSlashIndex + 1, secondSlashIndex) : pathname.substring(firstSlashIndex + 1);
-  const [title,setTitle] = useState('');
+  const firstSlashIndex = pathname.indexOf("/");
+  const secondSlashIndex = pathname.indexOf("/", 1);
+  const extractedPath =
+    firstSlashIndex !== -1 && secondSlashIndex !== -1
+      ? pathname.substring(firstSlashIndex + 1, secondSlashIndex)
+      : pathname.substring(firstSlashIndex + 1);
+  const [title, setTitle] = useState("");
 
-  useEffect(()=>{
+  useEffect(() => {
     switch (extractedPath) {
-      case 'project':
-        setTitle('project | 디앤디모바일');
+      case "project":
+        setTitle("project | 디앤디모바일");
         break;
-      case 'about':
-        setTitle('about | 디앤디모바일');
+      case "about":
+        setTitle("about | 디앤디모바일");
         break;
-      case 'recruit':
-        setTitle('recruit | 디앤디모바일');
+      case "recruit":
+        setTitle("recruit | 디앤디모바일");
         break;
-      case 'contact':
-        setTitle('contact | 디앤디모바일');
+      case "contact":
+        setTitle("contact | 디앤디모바일");
         break;
       default:
-        setTitle('디앤디모바일');
+        setTitle("디앤디모바일");
     }
-  },[extractedPath])
-  
+  }, [extractedPath]);
+
   return (
     <>
       <HelmetProvider>
@@ -40,10 +43,10 @@ const MainLayout = () => {
         </Helmet>
       </HelmetProvider>
       <WhiteProvider>
-        <Header/>
+        <Header />
         <Outlet />
       </WhiteProvider>
-      <Footer/>
+      <Footer />
     </>
   );
 };

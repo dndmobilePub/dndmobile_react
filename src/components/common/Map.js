@@ -1,31 +1,45 @@
-import {GoogleMap, LoadScriptNext, Marker, InfoWindow } from '@react-google-maps/api'
-import {useMemo, useState} from 'react'
-
+import {
+  GoogleMap,
+  LoadScriptNext,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
+import { useMemo, useState } from "react";
+import markerIcon from "../../assets/images/logo_marker.svg";
 function MapComponent() {
-  const center = useMemo(() => ({lat: 37.556076, lng: 126.921527}), [])
+  const center = useMemo(() => ({ lat: 37.556076, lng: 126.921527 }), []);
   const [infoWindowOpen, setInfoWindowOpen] = useState(true);
 
   return (
-    <LoadScriptNext googleMapsApiKey={`AIzaSyB9pOeIxO44Vhf6VCi35iiO0tnkO1EqdsM`}>
-      <GoogleMap zoom={18} center={center} id="map" options={{
-        disableDefaultUI: true,
-        mapId:"e175f89ac704555c"
-      }}>
-        <Marker 
-        position={{ lat: 37.556107, lng: 126.921539 }} 
-        icon={{url: '../assets/images/logo_marker.svg', scale: 1, size: {width: 40, height: 40}}}
-        onClick={() => setInfoWindowOpen(true)}
+    <LoadScriptNext
+      googleMapsApiKey={`AIzaSyB9pOeIxO44Vhf6VCi35iiO0tnkO1EqdsM`}
+    >
+      <GoogleMap
+        zoom={18}
+        center={center}
+        id="map"
+        options={{
+          disableDefaultUI: true,
+          mapId: "e175f89ac704555c",
+        }}
+      >
+        <Marker
+          position={{ lat: 37.556107, lng: 126.921539 }}
+          icon={{ url: markerIcon, scale: 1, size: { width: 40, height: 40 } }}
+          onClick={() => setInfoWindowOpen(true)}
         />
         {infoWindowOpen && (
           <InfoWindow
             onCloseClick={() => setInfoWindowOpen(false)}
             position={{ lat: 37.556277, lng: 126.921539 }}
           >
-            <div><p>dndmobile</p></div>
+            <div>
+              <p>dndmobile</p>
+            </div>
           </InfoWindow>
         )}
       </GoogleMap>
     </LoadScriptNext>
-  )
+  );
 }
-export default MapComponent
+export default MapComponent;

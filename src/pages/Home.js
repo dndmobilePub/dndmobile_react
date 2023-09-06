@@ -36,7 +36,7 @@ import cjIcon2 from "../assets/images/img_cj_icon2.png";
 import cj01 from "../assets/images/img_cj01.png";
 import cj02 from "../assets/images/img_cj02.png";
 import cj03 from "../assets/images/img_cj03.png";
-import woorimySplash from "../assets/images/img_woorimy_splash.gif"
+import woorimySplash from "../assets/images/img_woorimy_splash.gif";
 import woorimyLeft from "../assets/images/img_woorimy_left.png";
 import woorimyLeftMo from "../assets/images/img_woorimy_left_mo.png";
 import woorimyRight from "../assets/images/img_woorimy_right.png";
@@ -106,7 +106,7 @@ export default function Home({ isMain }) {
     gsap.set(elem, { x: 0, y: 0, autoAlpha: 0 });
   }
 
-  if(isMain === true){
+  if (isMain === true) {
     document.querySelector(".wrap").classList.add("main");
   }
 
@@ -136,46 +136,49 @@ export default function Home({ isMain }) {
 
     links.forEach((a, index) => {
       let element = document.querySelector(a.getAttribute("href")),
-          linkST = ScrollTrigger.create({
-              trigger: element,
-              start: "top top"
-          });
-      ScrollTrigger.create({
+        linkST = ScrollTrigger.create({
           trigger: element,
-          start: "top center",
-          end: "bottom center",
-          onToggle: self => {
-              if (self.isActive) {
-                  // 링크의 숫자값으로 "current" span 내용 변경
-                  const linkNumber = index + 1;
-                  
-                  if (currentSpan) { // currentSpan이 존재할 경우에만 애니메이션 적용
-                      gsap.to(currentSpan, {
-                          y: -20, // 위로 20px 이동
-                          opacity: 0, // 투명도 0으로 변경
-                          duration: 0.2,
-                          onComplete: () => {
-                              currentSpan.textContent = linkNumber.toString().padStart(2, '0'); // "current" span 내용 변경
-                              gsap.to(currentSpan, {
-                                  y: 0, // 다시 원래 위치로
-                                  opacity: 1, // 투명도 원래대로
-                                  duration: 0.2,
-                              });
-                          }
-                      });
-                  }
-                  setActive(a);
-              }
+          start: "top top",
+        });
+      ScrollTrigger.create({
+        trigger: element,
+        start: "top center",
+        end: "bottom center",
+        onToggle: (self) => {
+          if (self.isActive) {
+            // 링크의 숫자값으로 "current" span 내용 변경
+            const linkNumber = index + 1;
+
+            if (currentSpan) {
+              // currentSpan이 존재할 경우에만 애니메이션 적용
+              gsap.to(currentSpan, {
+                y: -20, // 위로 20px 이동
+                opacity: 0, // 투명도 0으로 변경
+                duration: 0.2,
+                onComplete: () => {
+                  currentSpan.textContent = linkNumber
+                    .toString()
+                    .padStart(2, "0"); // "current" span 내용 변경
+                  gsap.to(currentSpan, {
+                    y: 0, // 다시 원래 위치로
+                    opacity: 1, // 투명도 원래대로
+                    duration: 0.2,
+                  });
+                },
+              });
+            }
+            setActive(a);
           }
+        },
       });
-      a.addEventListener("click", e => {
-          e.preventDefault();
-          window.scrollTo({
-            top: linkST.start,
-            behavior: "smooth",
-          });
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: linkST.start,
+          behavior: "smooth",
+        });
       });
-  });
+    });
 
     function setActive(link) {
       links.forEach((el) => el.classList.remove("active"));
@@ -414,11 +417,7 @@ export default function Home({ isMain }) {
               </div>
             </div>
             <div className="pjt-top-img">
-              <img
-                src={scAgedMotion}
-                alt=""
-                className="sc-aged-motion"
-              />
+              <img src={scAgedMotion} alt="" className="sc-aged-motion" />
             </div>
           </div>
           <div className="pjt-con">
@@ -477,22 +476,14 @@ export default function Home({ isMain }) {
                 data-aos-delay="300"
                 data-aos-duration="1000"
               >
-                <img
-                  src={scAgedPhone1}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={scAgedPhone1} alt="" className="pjt-img" />
               </div>
               <div
                 data-aos="fade-left"
                 data-aos-delay="600"
                 data-aos-duration="1000"
               >
-                <img
-                  src={scAgedPhone2}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={scAgedPhone2} alt="" className="pjt-img" />
               </div>
             </div>
           </div>
@@ -516,33 +507,21 @@ export default function Home({ isMain }) {
                 data-aos-delay="300"
                 data-aos-duration="1000"
               >
-                <img
-                  src={scAgedPhone3}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={scAgedPhone3} alt="" className="pjt-img" />
               </div>
               <div
                 data-aos="fade-left"
                 data-aos-delay="600"
                 data-aos-duration="1000"
               >
-                <img
-                  src={scAgedPhone4}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={scAgedPhone4} alt="" className="pjt-img" />
               </div>
               <div
                 data-aos="fade-left"
                 data-aos-delay="900"
                 data-aos-duration="1000"
               >
-                <img
-                  src={scAgedPhone5}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={scAgedPhone5} alt="" className="pjt-img" />
               </div>
             </div>
           </div>
@@ -573,11 +552,7 @@ export default function Home({ isMain }) {
               data-aos="fade-left"
               data-aos-duration="1000"
             >
-              <img
-                src={scSplash}
-                alt="sc제일은행 이미지"
-                className=""
-              />
+              <img src={scSplash} alt="sc제일은행 이미지" className="" />
             </div>
           </div>
           <div className="pjt-con">
@@ -602,11 +577,7 @@ export default function Home({ isMain }) {
             </div>
             <div className="phone-layout type02">
               <div data-aos="fade-up" data-aos-duration="1000">
-                <img
-                  src={sc01}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={sc01} alt="" className="pjt-img" />
               </div>
               <div
                 className="mt160"
@@ -614,11 +585,7 @@ export default function Home({ isMain }) {
                 data-aos-delay="300"
                 data-aos-duration="1000"
               >
-                <img
-                  src={sc02}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={sc02} alt="" className="pjt-img" />
               </div>
             </div>
             <div className="pjt-title type02 white">
@@ -644,22 +611,14 @@ export default function Home({ isMain }) {
                 data-aos-delay="300"
                 data-aos-duration="1000"
               >
-                <img
-                  src={sc03}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={sc03} alt="" className="pjt-img" />
               </div>
               <div
                 data-aos="fade-right"
                 data-aos-delay="600"
                 data-aos-duration="1000"
               >
-                <img
-                  src={sc04}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={sc04} alt="" className="pjt-img" />
               </div>
               <div
                 className="hide-mobile"
@@ -667,11 +626,7 @@ export default function Home({ isMain }) {
                 data-aos-delay="900"
                 data-aos-duration="1000"
               >
-                <img
-                  src={sc05}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={sc05} alt="" className="pjt-img" />
               </div>
             </div>
           </div>
@@ -787,22 +742,14 @@ export default function Home({ isMain }) {
                 data-aos-delay="300"
                 data-aos-duration="1000"
               >
-                <img
-                  src={kb01}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={kb01} alt="" className="pjt-img" />
               </div>
               <div
                 data-aos="fade-left"
                 data-aos-delay="600"
                 data-aos-duration="1000"
               >
-                <img
-                  src={kb02}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={kb02} alt="" className="pjt-img" />
               </div>
               <div
                 className="hide-mobile"
@@ -810,11 +757,7 @@ export default function Home({ isMain }) {
                 data-aos-delay="900"
                 data-aos-duration="1000"
               >
-                <img
-                  src={kb03}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={kb03} alt="" className="pjt-img" />
               </div>
             </div>
           </div>
@@ -860,11 +803,7 @@ export default function Home({ isMain }) {
                 data-aos-delay="300"
                 data-aos-duration="1000"
               >
-                <img
-                  src={cjSplash1}
-                  alt="CJ대한통운 이미지"
-                  className=""
-                />
+                <img src={cjSplash1} alt="CJ대한통운 이미지" className="" />
               </div>
               <div
                 className="pjt-img02"
@@ -872,11 +811,7 @@ export default function Home({ isMain }) {
                 data-aos-delay="600"
                 data-aos-duration="1000"
               >
-                <img
-                  src={cjSplash2}
-                  alt="CJ대한통운 이미지"
-                  className=""
-                />
+                <img src={cjSplash2} alt="CJ대한통운 이미지" className="" />
               </div>
             </div>
           </div>
@@ -910,22 +845,14 @@ export default function Home({ isMain }) {
                 data-aos-delay="300"
                 data-aos-duration="1000"
               >
-                <img
-                  src={cj01}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={cj01} alt="" className="pjt-img" />
               </div>
               <div
                 data-aos="fade-left"
                 data-aos-delay="600"
                 data-aos-duration="1000"
               >
-                <img
-                  src={cj02}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={cj02} alt="" className="pjt-img" />
               </div>
               <div
                 className="hide-mobile"
@@ -933,11 +860,7 @@ export default function Home({ isMain }) {
                 data-aos-delay="900"
                 data-aos-duration="1000"
               >
-                <img
-                  src={cj03}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={cj03} alt="" className="pjt-img" />
               </div>
             </div>
           </div>
@@ -989,31 +912,15 @@ export default function Home({ isMain }) {
               >
                 <div className="bg-area">
                   <div className="woori_bg_left">
-                    <img
-                      src={woorimyLeft}
-                      alt=""
-                      className="hide-mobile"
-                    />
-                    <img
-                      src={woorimyLeftMo}
-                      alt=""
-                      className="hide-pc"
-                    />
+                    <img src={woorimyLeft} alt="" className="hide-mobile" />
+                    <img src={woorimyLeftMo} alt="" className="hide-pc" />
                   </div>
                   <div className="splash-img">
                     <img src={woorimySplash} alt="" />
                   </div>
                   <div className="woori_bg_right">
-                    <img
-                      src={woorimyRight}
-                      alt=""
-                      className="hide-mobile"
-                    />
-                    <img
-                      src={woorimyRightMo}
-                      alt=""
-                      className="hide-pc"
-                    />
+                    <img src={woorimyRight} alt="" className="hide-mobile" />
+                    <img src={woorimyRightMo} alt="" className="hide-pc" />
                   </div>
                 </div>
               </div>
@@ -1025,22 +932,14 @@ export default function Home({ isMain }) {
                   data-aos-delay="300"
                   data-aos-duration="1000"
                 >
-                  <img
-                    src={woorimy01}
-                    alt=""
-                    className="pjt-img"
-                  />
+                  <img src={woorimy01} alt="" className="pjt-img" />
                 </div>
                 <div
                   data-aos="fade-up"
                   data-aos-delay="600"
                   data-aos-duration="1000"
                 >
-                  <img
-                    src={woorimy01}
-                    alt=""
-                    className="pjt-img"
-                  />
+                  <img src={woorimy01} alt="" className="pjt-img" />
                 </div>
               </div>
             </div>
@@ -1130,22 +1029,14 @@ export default function Home({ isMain }) {
                 data-aos-delay="300"
                 data-aos-duration="1000"
               >
-                <img
-                  src={woorimy03}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={woorimy03} alt="" className="pjt-img" />
               </div>
               <div
                 data-aos="fade-left"
                 data-aos-delay="600"
                 data-aos-duration="1000"
               >
-                <img
-                  src={woorimy04}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={woorimy04} alt="" className="pjt-img" />
               </div>
               <div
                 className="hide-mobile"
@@ -1153,11 +1044,7 @@ export default function Home({ isMain }) {
                 data-aos-delay="900"
                 data-aos-duration="1000"
               >
-                <img
-                  src={woorimy05}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={woorimy05} alt="" className="pjt-img" />
               </div>
             </div>
           </div>
@@ -1215,22 +1102,14 @@ export default function Home({ isMain }) {
                 data-aos-delay="300"
                 data-aos-duration="1000"
               >
-                <img
-                  src={wooriCerti01}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={wooriCerti01} alt="" className="pjt-img" />
               </div>
               <div
                 data-aos="fade-right"
                 data-aos-delay="600"
                 data-aos-duration="1000"
               >
-                <img
-                  src={wooriCerti02}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={wooriCerti02} alt="" className="pjt-img" />
               </div>
             </div>
           </div>
@@ -1292,11 +1171,7 @@ export default function Home({ isMain }) {
                 data-aos-delay="300"
                 data-aos-duration="1000"
               >
-                <img
-                  src={wooriOpen01}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={wooriOpen01} alt="" className="pjt-img" />
               </div>
             </div>
             <div className="phone-layout">
@@ -1305,22 +1180,14 @@ export default function Home({ isMain }) {
                 data-aos-delay="300"
                 data-aos-duration="1000"
               >
-                <img
-                  src={wooriOpen02}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={wooriOpen02} alt="" className="pjt-img" />
               </div>
               <div
                 data-aos="fade-right"
                 data-aos-delay="600"
                 data-aos-duration="1000"
               >
-                <img
-                  src={wooriOpen03}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={wooriOpen03} alt="" className="pjt-img" />
               </div>
               <div
                 className="hide-mobile"
@@ -1328,11 +1195,7 @@ export default function Home({ isMain }) {
                 data-aos-delay="900"
                 data-aos-duration="1000"
               >
-                <img
-                  src={wooriOpen04}
-                  alt=""
-                  className="pjt-img"
-                />
+                <img src={wooriOpen04} alt="" className="pjt-img" />
               </div>
             </div>
           </div>

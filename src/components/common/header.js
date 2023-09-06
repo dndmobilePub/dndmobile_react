@@ -297,7 +297,9 @@ const Header = () => {
           onClass ? "active" : ""
         }`}
         id="menuToggle"
-        onClick={()=>{setOnClass(!onClass)}}
+        onClick={() => {
+          setOnClass(!onClass);
+        }}
       >
         <svg
           viewBox="0 0 12 10"
