@@ -1,57 +1,10 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import $ from "jquery";
+import { useState } from "react";
+import Accordion from "../components/ui/Accordion";
 
 const Recruit = () => {
-  useEffect(() => {
-    $(".accordion").on("click", function (e) {
-      e.preventDefault();
+  const [visible, setVisible] = useState(0);
 
-      const $siblings = $(".accordion");
-
-      $siblings.next(".panel").slideUp();
-      $siblings.removeClass("active");
-
-      const $this = $(this);
-      const $parent = $this.parent();
-      const $nextToggleContents = $this.next(".panel");
-
-      if ($this.next(".panel").is(":hidden")) {
-        console.log("here");
-        $this.addClass("active");
-        $nextToggleContents.slideDown(function () {
-          let offsetTop = $parent.offset().top;
-          let gnbHeight = $("header").outerHeight();
-
-          $("html, body").animate(
-            {
-              scrollTop: offsetTop - gnbHeight,
-            },
-            300
-          );
-
-          // 화면 너비가 768px보다 작을 경우
-          let screenWidth = $(window).width();
-          if (screenWidth < 768) {
-            offsetTop = $parent.offset().top;
-            gnbHeight = $("header").outerHeight();
-
-            $("html, body").animate(
-              {
-                scrollTop: offsetTop - gnbHeight,
-              },
-              300
-            );
-          }
-        });
-        return;
-      } else {
-        console.log("here2");
-        $this.removeClass("active");
-        $nextToggleContents.slideUp();
-      }
-    });
-  }, []);
   return (
     <section className="recruit-wrap">
       <div className="title-wrap">
@@ -83,97 +36,36 @@ const Recruit = () => {
       </div>
 
       <div className="accordion-wrap">
-        <dl>
-          <dt className="accordion">기획자</dt>
-          <dd className="panel">
-            <div className="part-box">
-              <div className="part">
-                <p>담당업무</p>
-                <ul>
-                  <li>Web, Mobile 기획</li>
-                  <li>UX·UI 기획</li>
-                  <li>UX Writing</li>
-                  <li>서비스 분석 및 기획 설계</li>
-                  <li>프로젝트 유지 관리</li>
-                  <li>원활한 커뮤니케이션</li>
-                </ul>
-              </div>
-              <div className="part">
-                <p>핵심역량</p>
-                <ul>
-                  <li>성실성, 협동심, 꼼꼼함, 적응성</li>
-                </ul>
-              </div>
-              <div className="part">
-                <p>자격요건</p>
-                <ul>
-                  <li>학력 : 초대졸이상</li>
-                  <li>경력 : 경력1년↑(주임~대리급)</li>
-                  <li>경력 : 경력5년↑(과장~차장급)</li>
-                </ul>
-              </div>
-            </div>
-          </dd>
-        </dl>
-        <dl>
-          <dt className="accordion">디자이너</dt>
-          <dd className="panel">
-            <div className="part-box">
-              <div className="part">
-                <p>담당업무</p>
-                <ul>
-                  <li>Web, Mobile 디자인</li>
-                  <li>UX·UI 디자인</li>
-                  <li>Figma, XD, Sketch를 이용한 디자인</li>
-                  <li>프로젝트 유지 관리</li>
-                </ul>
-              </div>
-              <div className="part">
-                <p>핵심역량</p>
-                <ul>
-                  <li>성실성, 협동심, 꼼꼼함, 적응성</li>
-                </ul>
-              </div>
-              <div className="part">
-                <p>자격요건</p>
-                <ul>
-                  <li>학력 : 초대졸이상</li>
-                  <li>경력 : 경력1년↑(주임~대리급)</li>
-                  <li>경력 : 경력5년↑(과장~차장급)</li>
-                </ul>
-              </div>
-            </div>
-          </dd>
-        </dl>
-        <dl>
-          <dt className="accordion">퍼블리셔</dt>
-          <dd className="panel">
-            <div className="part-box">
-              <div className="part">
-                <p>담당업무</p>
-                <ul>
-                  <li>HTML 코딩 및 웹퍼블리싱</li>
-                  <li>Javascript, jQuery 코딩</li>
-                  <li>프레임워크 (VUE, REACT)를 통한 웹사이트 구축</li>
-                  <li>프로젝트 유지 관리</li>
-                </ul>
-              </div>
-              <div className="part">
-                <p>핵심역량</p>
-                <ul>
-                  <li>성실성, 협동심, 꼼꼼함, 적응성</li>
-                </ul>
-              </div>
-              <div className="part">
-                <p>자격요건</p>
-                <ul>
-                  <li>학력 : 초대졸이상</li>
-                  <li>경력 : 경력6년↑(과장~차장급)</li>
-                </ul>
-              </div>
-            </div>
-          </dd>
-        </dl>
+        <Accordion 
+          visible={visible}
+          type="recruit"
+          id={1}
+          title="기획자"
+          list1={["Web, Mobile 기획","UX·UI 기획","UX Writing","서비스 분석 및 기획 설계","프로젝트 유지 관리","원활한 커뮤니케이션"]}
+          list2={["성실성, 협동심, 꼼꼼함, 적응성"]}
+          list3={["학력 : 초대졸이상","경력 : 경력1년↑(주임~대리급)","경력 : 경력5년↑(과장~차장급)"]}
+          onclick={()=>setVisible(visible === 1 ? 0 : 1)}
+        />
+        <Accordion 
+          visible={visible}
+          type="recruit"
+          id={2}
+          title="디자이너"
+          list1={["Web, Mobile 기획","UX·UI 기획","UX Writing","서비스 분석 및 기획 설계","프로젝트 유지 관리","원활한 커뮤니케이션"]}
+          list2={["성실성, 협동심, 꼼꼼함, 적응성"]}
+          list3={["학력 : 초대졸이상","경력 : 경력1년↑(주임~대리급)","경력 : 경력5년↑(과장~차장급)"]}
+          onclick={()=>setVisible(visible === 2 ? 0 : 2)}
+        />
+        <Accordion 
+          visible={visible}
+          type="recruit"
+          id={3}
+          title="퍼블리셔"
+          list1={["Web, Mobile 기획","UX·UI 기획","UX Writing","서비스 분석 및 기획 설계","프로젝트 유지 관리","원활한 커뮤니케이션"]}
+          list2={["성실성, 협동심, 꼼꼼함, 적응성"]}
+          list3={["학력 : 초대졸이상","경력 : 경력1년↑(주임~대리급)","경력 : 경력5년↑(과장~차장급)"]}
+          onclick={()=>setVisible(visible === 3 ? 0 : 3)}
+        />
       </div>
 
       <div className="btn-wrap" data-aos="fade-up" data-aos-duration="1000">
