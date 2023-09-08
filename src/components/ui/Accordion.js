@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useRef } from "react";
 
 const variants = {
+  initialOpen: { display: "block", height: "auto" },
   initial: { display: "block", height: 0 },
   open: { height: "auto" },
   closed: { height: 0 },
@@ -17,6 +18,7 @@ const Accordion = ({
   list1,
   list2,
   list3,
+  isOpen = false,
 }) => {
   const accordionRef = useRef(null);
   let projectList, workList, coreList, qualList;
@@ -75,7 +77,15 @@ const Accordion = ({
   return (
     <dl>
       <dt
-        className={`accordion ${visible === id ? "active" : ""}`}
+        className={`accordion ${
+          visible === id
+            ? visible === id && isOpen
+              ? ""
+              : "active"
+            : isOpen
+            ? "active"
+            : ""
+        }`}
         onClick={() => {
           onclick && onclick();
           setTimeout(() => {
@@ -91,8 +101,16 @@ const Accordion = ({
       </dt>
       <motion.dd
         className="panel"
-        initial="initial"
-        animate={visible === id ? "open" : "closed"}
+        initial={isOpen ? "initialOpen" : "initial"}
+        animate={
+          visible === id
+            ? visible === id && isOpen
+              ? "closed"
+              : "open"
+            : isOpen
+            ? "open"
+            : "closed"
+        }
         variants={variants}
         transition={{ ease: "linear", duration: 0.3 }}
       >

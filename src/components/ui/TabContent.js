@@ -20,6 +20,7 @@ const TabContent = ({ year = 2022 }) => {
       list0={item.list}
       onclick={() => setVisible(visible === item.id ? 0 : item.id)}
       key={item.id}
+      isOpen={true}
     />
   ));
   const list2022 = Project2022.map((item) => (
@@ -63,15 +64,15 @@ const TabContent = ({ year = 2022 }) => {
     />
   ));
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (year) {
       animate({ opacity: 0 });
       console.log("done");
     }
-  }, [year, animate]); */
+  }, [year, animate]);
   return (
     <motion.div
-      className={`tab-detail tab-${year} on`}
+      className={`tab-detail tab-${year} ${year === 2023 ? "active":""} on`}
       exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
