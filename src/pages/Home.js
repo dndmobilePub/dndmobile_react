@@ -89,6 +89,7 @@ export default function Home({ isMain }) {
     });
 
     let links = gsap.utils.toArray(".main-indicator-wrap a");
+    let whiteSections = document.querySelectorAll('[data-type="white"]');
     let currentSpan = document.querySelector(".current"); // current span 요소 선택
 
     links.forEach((a, index) => {
@@ -138,18 +139,43 @@ export default function Home({ isMain }) {
       });
     });
 
+    whiteSections.forEach((a) => {
+      ScrollTrigger.create({
+        trigger: a,
+        start: "top center",
+        end: "bottom center",
+        onToggle: (self) => {
+          if (self.isActive) {
+            document
+              .querySelector(".main-indicator-wrap")
+              .classList.add("white");
+            document.querySelector(".menu-toggle").classList.add("white");
+            document.querySelector(".main_logo").classList.add("white");
+            document.querySelector(".top-nav").classList.add("white");
+            document.querySelector("html").classList.add("bg-black");
+          } else {
+            document
+              .querySelector(".main-indicator-wrap")
+              .classList.remove("white");
+            document.querySelector(".menu-toggle").classList.remove("white");
+            document.querySelector(".main_logo").classList.remove("white");
+            document.querySelector(".top-nav").classList.remove("white");
+            document.querySelector("html").classList.remove("bg-black");
+          }
+        },
+      });
+    });
+
     function setActive(link) {
       links.forEach((el) => el.classList.remove("active"));
       link.classList.add("active");
       if (link.classList.contains("indi-white")) {
-        console.log('here1');
         document.querySelector(".main-indicator-wrap").classList.add("white");
         document.querySelector(".menu-toggle").classList.add("white");
         document.querySelector(".main_logo").classList.add("white");
         document.querySelector(".top-nav").classList.add("white");
         document.querySelector("html").classList.add("bg-black");
       } else {
-        console.log('here2');
         document
           .querySelector(".main-indicator-wrap")
           .classList.remove("white");
@@ -201,65 +227,6 @@ export default function Home({ isMain }) {
         });
       });
     });
-
-    setTimeout(function () {
-      const intro = document.querySelector(".intro-wrap");
-
-      const introObserver = (intro, introWatcher) => {
-        if (intro[0].isIntersecting) {
-          $(".main-indicator-wrap").addClass("white");
-          $(".menu-toggle").addClass("white");
-          $(".main_logo").addClass("white");
-          $(".top-nav").addClass("white");
-          $(".quick_btn").addClass("white");
-        }
-      };
-      const introObserverOptions = { threshold: 0.5, rootMargin: "100px" };
-      const introWatcher = new IntersectionObserver(
-        introObserver,
-        introObserverOptions
-      );
-      introWatcher.observe(intro);
-    }, 100);
-
-    const scrollEvent = () => {
-      //query selectors
-      const getDataTypes = document.querySelectorAll('[data-type="white"]');
-      // intersection observer
-      const watchCallback = (getData, sectionWatcher) => {
-        getData.forEach((getData) => {
-          // console.log(getData)
-          if (getData.isIntersecting) {
-            //$(".main-indicator-wrap").addClass("white");
-            $(".menu-toggle").addClass("white");
-            $(".main_logo").addClass("white");
-            $(".top-nav").addClass("white");
-            $(".quick_btn").addClass("white");
-          } else {
-            //$(".main-indicator-wrap").removeClass("white");
-            $(".menu-toggle").removeClass("white");
-            $(".main_logo").removeClass("white");
-            $(".top-nav").removeClass("white");
-            $(".quick_btn").removeClass("white");
-          }
-        });
-      };
-      const watchOptions = { threshold: 0.4 };
-      // 관찰자
-      const sectionWatcher = new IntersectionObserver(
-        watchCallback,
-        watchOptions
-      );
-
-      //관찰 대상
-      getDataTypes.forEach((getData) => {
-        sectionWatcher.observe(getData);
-      });
-    };
-    window.addEventListener("scroll", scrollEvent);
-    return () => {
-      window.removeEventListener("scroll", scrollEvent);
-    };
   }, []);
   return (
     <>
@@ -521,10 +488,18 @@ export default function Home({ isMain }) {
                 <br />
                 고령자 위한 편한뱅킹
               </p>
-              <p className="desc aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
-                SC제일은행의 모바일 앱을 고령화시대에 맞춰 고령자를 <br class="hide-pc"/>위한<br class="hide-mobile"/> 사용자
-                경험에 기반하여 단순화 한 앱의 편의성과 <br class="hide-pc"/>직관성을<br class="hide-mobile"/> 고려한 UX/UI
-                환경을 제공합니다.
+              <p
+                className="desc aos-init aos-animate"
+                data-aos="fade-up"
+                data-aos-duration="1000"
+              >
+                SC제일은행의 모바일 앱을 고령화시대에 맞춰 고령자를{" "}
+                <br className="hide-pc" />
+                위한
+                <br className="hide-mobile" /> 사용자 경험에 기반하여 단순화 한
+                앱의 편의성과 <br className="hide-pc" />
+                직관성을
+                <br className="hide-mobile" /> 고려한 UX/UI 환경을 제공합니다.
               </p>
               <div
                 className="tool-list aos-init"
