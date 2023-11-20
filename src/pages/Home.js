@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import $ from "jquery";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Indicator } from "../components/ui/Indicatior";
 
 import * as Img from "../assets/images/index";
@@ -12,8 +12,6 @@ import { Autoplay } from "swiper/modules";
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 export default function Home({ isMain }) {
-  const swiperRef = useRef(null);
-
   function animateFrom(elem) {
     var x = 0,
       y = 150,
@@ -56,6 +54,17 @@ export default function Home({ isMain }) {
   if (isMain === true) {
     document.querySelector(".wrap").classList.add("main");
   }
+
+  const phoneSwiperOption = {
+    className: "phone-display",
+    autoplay: { delay: 3000 },
+    slidesPerView: 3,
+    loop: true,
+    loopedSlides: 1,
+    centeredSlides: true,
+    speed: 600,
+    modules: [Autoplay],
+  };
 
   useEffect(() => {
     gsap.utils.toArray(".gs-up").forEach(function (elem) {
@@ -152,13 +161,6 @@ export default function Home({ isMain }) {
             document.querySelector(".menu-toggle").classList.add("white");
             document.querySelector(".main_logo").classList.add("white");
             document.querySelector(".top-nav").classList.add("white");
-          } else {
-            document
-              .querySelector(".main-indicator-wrap")
-              .classList.remove("white");
-            document.querySelector(".menu-toggle").classList.remove("white");
-            document.querySelector(".main_logo").classList.remove("white");
-            document.querySelector(".top-nav").classList.remove("white");
           }
         },
       });
@@ -225,6 +227,7 @@ export default function Home({ isMain }) {
         });
       });
     });
+
   }, []);
   return (
     <>
@@ -427,25 +430,7 @@ export default function Home({ isMain }) {
               </div>
               <div className="phone-swiper hide-mobile">
                 <img src={Img.hanaPhone5} alt="" className="phone-mockup" />
-                <Swiper
-                  ref={swiperRef}
-                  className="phone-display"
-                  autoplay={{ delay: 3000 }}
-                  slidesPerView={3}
-                  loop={true}
-                  centeredSlides={true}
-                  loopedSlides={1}
-                  observer={true}
-                  observeParents={true}
-                  speed={600}
-                  modules={[Autoplay]}
-                  breakpoints={{
-                    767: {
-                      slidesPerView: 1,
-                      spaceBetween: 5,
-                    },
-                  }}
-                >
+                <Swiper {...phoneSwiperOption}>
                   <SwiperSlide>
                     <img
                       src={Img.hanaDisplay1}
