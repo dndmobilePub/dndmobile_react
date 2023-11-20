@@ -152,7 +152,6 @@ export default function Home({ isMain }) {
             document.querySelector(".menu-toggle").classList.add("white");
             document.querySelector(".main_logo").classList.add("white");
             document.querySelector(".top-nav").classList.add("white");
-            document.querySelector("html").classList.add("bg-black");
           } else {
             document
               .querySelector(".main-indicator-wrap")
@@ -160,7 +159,6 @@ export default function Home({ isMain }) {
             document.querySelector(".menu-toggle").classList.remove("white");
             document.querySelector(".main_logo").classList.remove("white");
             document.querySelector(".top-nav").classList.remove("white");
-            document.querySelector("html").classList.remove("bg-black");
           }
         },
       });
