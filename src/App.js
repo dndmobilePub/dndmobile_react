@@ -5,7 +5,7 @@ import About from './pages/About';
 import Recruit from './pages/Recruit';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
-import MainLayout from './layout/MainLayout';
+import MainLayout from './components/layout/MainLayout';
 
 function App() {
   return (

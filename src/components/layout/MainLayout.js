@@ -1,9 +1,9 @@
 import { Outlet, useLocation } from "react-router-dom";
-import Header from "../components/common/Header";
-import Footer from "../components/common/Footer";
+import Header from "../common/Header";
+import Footer from "../common/Footer";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useEffect, useState } from "react";
-import { WhiteProvider } from "../store/WhiteContext";
+import { WhiteProvider } from "../../store/WhiteContext";
 
 const MainLayout = () => {
   const location = useLocation();
