@@ -3,12 +3,9 @@ import { useState, useEffect } from "react";
 export const TopButton = () => {
   const [showButton, setShowButton] = useState(false);
 
-  const scrollToTop = () => {
-    window.scroll({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  function topFunction() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   useEffect(() => {
     const showButtonClick = () => {
@@ -28,7 +25,7 @@ export const TopButton = () => {
     <>
       {showButton && (
         <button
-          onClick={() => scrollToTop()}
+          onClick={() => topFunction()}
           id="topBtn"
           className="btn-top"
           style={{ display: showButton ? "block" : "none" }}
@@ -43,7 +40,7 @@ export const TopButton = () => {
             <g filter="url(#filter0_b_1275_33233)">
               <path
                 d="M13.4961 33.002H22.4961C29.9961 33.002 32.9961 30.002 32.9961 22.502V13.502C32.9961 6.00195 29.9961 3.00195 22.4961 3.00195H13.4961C5.99609 3.00195 2.99609 6.00195 2.99609 13.502V22.502C2.99609 30.002 5.99609 33.002 13.4961 33.002Z"
-                fill="black"
+                fill="#222"
               />
               <path
                 d="M12.6992 20.1882L17.9942 14.9082L23.2892 20.1882"

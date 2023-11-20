@@ -4,38 +4,48 @@ export const Project2023 = [
     company: "진행중인 프로젝트",
     list: [
       {
-        title: "하나캐피탈 디지털채널 운영",
-        ing: false,
+        title: "SC제일은행 주택담보대출 이동시스템",
+        ing: true,
         wa: false,
       },
       {
-        title: "SC제일은행 대출이동",
-        ing: false,
+        title: "삼성생명 더헬스앱 고도화",
+        ing: true,
         wa: false,
       },
       {
-        title: "하나은행 마케팅 플랫폼 및 데이터 허브 캠페인-CRM 상품제휴",
-        ing: false,
+        title: "우리금융그룹 MZ플랫폼 위탁 운영",
+        ing: true,
         wa: false,
       },
       {
-        title: "롯데제과 SFA 영업지원 시스템",
-        ing: false,
+        title: "부산은행 (미성년자)무계좌기반 선불서비스 구축",
+        ing: true,
         wa: false,
       },
       {
-        title: "우리은행 마이데이터 운영",
-        ing: false,
+        title: "SC제일은행 웹접근성 인증취득",
+        ing: true,
         wa: false,
       },
       {
-        title: "KB국민은행 e-Capital Market 운영(디자인 및 퍼블)",
-        ing: false,
+        title: "SC제일은행 금소법대응(2차)",
+        ing: true,
         wa: false,
       },
       {
-        title: "KICA(한국정보인증) 비대면 서비스 구축(전자증명서 및 공동인증서 비대면 발급)",
-        ing: false,
+        title: "우리은행 금융포털 고도화",
+        ing: true,
+        wa: false,
+      },
+      {
+        title: "ABL생명 보장분석 서비스 고도화",
+        ing: true,
+        wa: false,
+      },
+      {
+        title: "우리은행 본인확인 서비스",
+        ing: true,
         wa: false,
       },
       {
@@ -44,23 +54,39 @@ export const Project2023 = [
         wa: false,
       },
       {
-        title: "우리은행 본인확인 서비스",
+        title:
+          "KICA(한국정보인증) 비대면 서비스 구축(전자증명서 및 공동인증서 비대면 발급)",
         ing: false,
         wa: false,
       },
       {
-        title: "우리은행 금융포털 고도화",
+        title: "KB국민은행 e-Capital Market 운영(디자인 및 퍼블)",
+        ing: true,
+        wa: false,
+      },
+      {
+        title: "우리은행 마이데이터 운영",
+        ing: true,
+        wa: false,
+      },
+      {
+        title: "롯데제과 SFA 영업지원 시스템",
         ing: false,
         wa: false,
       },
       {
-        title: "SC제일은행 금소법대응(2차)",
+        title: "하나은행 마케팅 플랫폼 및 데이터 허브 캠페인-CRM 상품제휴",
+        ing: true,
+        wa: false,
+      },
+      {
+        title: "SC제일은행 대출이동",
         ing: false,
         wa: false,
       },
       {
-        title: "우리금융그룹 MZ플랫폼 위탁 운영",
-        ing: false,
+        title: "하나캐피탈 디지털채널 운영",
+        ing: true,
         wa: false,
       },
     ],
@@ -74,17 +100,17 @@ export const Project2022 = [
     list: [
       {
         title: "마이데이터 2차",
-        ing: true,
+        ing: false,
         wa: false,
       },
       {
         title: "원더카드 서비스 마켓 및 카드신청 개발",
-        ing: true,
+        ing: false,
         wa: false,
       },
       {
         title: "하나머니 APP고도화(요건수립)",
-        ing: true,
+        ing: false,
         wa: false,
       },
     ],
@@ -95,12 +121,12 @@ export const Project2022 = [
     list: [
       {
         title: "마이데이터 2차",
-        ing: true,
+        ing: false,
         wa: false,
       },
       {
         title: "고령화를 위한 친화적 모바일APP",
-        ing: true,
+        ing: false,
         wa: false,
       },
       {
@@ -131,7 +157,7 @@ export const Project2022 = [
       },
       {
         title: "e-Capital Market 운영",
-        ing: true,
+        ing: false,
         wa: false,
       },
     ],
@@ -142,7 +168,7 @@ export const Project2022 = [
     list: [
       {
         title: "전자증명서 수취시스템 구축",
-        ing: true,
+        ing: false,
         wa: false,
       },
     ],
@@ -153,12 +179,12 @@ export const Project2022 = [
     list: [
       {
         title: "마이데이터 운영",
-        ing: true,
+        ing: false,
         wa: false,
       },
       {
         title: "사설인증 구축",
-        ing: true,
+        ing: false,
         wa: false,
       },
     ],
@@ -174,7 +200,7 @@ export const Project2022 = [
       },
       {
         title: "영업지원시스템 재구축",
-        ing: true,
+        ing: false,
         wa: false,
       },
     ],
@@ -229,7 +255,7 @@ export const Project2022 = [
     list: [
       {
         title: "대고객 디지털채널 재구축",
-        ing: true,
+        ing: false,
         wa: false,
       },
     ],
@@ -240,7 +266,7 @@ export const Project2022 = [
     list: [
       {
         title: "하이닉스 LMS시스템(SKHU) 구축",
-        ing: true,
+        ing: false,
         wa: false,
       },
     ],
@@ -251,7 +277,7 @@ export const Project2022 = [
     list: [
       {
         title: "자가진단 안심전세 APP 구축",
-        ing: true,
+        ing: false,
         wa: false,
       },
     ],
@@ -276,7 +302,7 @@ export const Project2021 = [
     list: [
       {
         title: "차세대 APP서비스 구축",
-        ing: true,
+        ing: false,
         wa: false,
       },
     ],
@@ -669,12 +695,12 @@ export const Project2019 = [
     list: [
       {
         title: "연금신탁해지",
-        ing: true,
+        ing: false,
         wa: false,
       },
       {
         title: "데일리론",
-        ing: true,
+        ing: false,
         wa: false,
       },
     ],
@@ -724,7 +750,7 @@ export const Project2019 = [
   },
   {
     id: 1,
-    company: "SC제일은행",
+    company: "경남은행",
     list: [
       {
         title: "창구전자문서(PPR) UX·UI",

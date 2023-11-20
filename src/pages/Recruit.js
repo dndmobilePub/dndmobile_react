@@ -51,7 +51,7 @@ const Recruit = () => {
           type="recruit"
           id={2}
           title="디자이너"
-          list1={["Web, Mobile 기획","UX·UI 기획","UX Writing","서비스 분석 및 기획 설계","프로젝트 유지 관리","원활한 커뮤니케이션"]}
+          list1={["Web, Mobile 디자인","UX·UI 디자인","Figma, XD, Sketch를 이용한 디자인","프로젝트 유지 관리"]}
           list2={["성실성, 협동심, 꼼꼼함, 적응성"]}
           list3={["학력 : 초대졸이상","경력 : 경력1년↑(주임~대리급)","경력 : 경력5년↑(과장~차장급)"]}
           onclick={()=>setVisible(visible === 2 ? 0 : 2)}
@@ -61,9 +61,9 @@ const Recruit = () => {
           type="recruit"
           id={3}
           title="퍼블리셔"
-          list1={["Web, Mobile 기획","UX·UI 기획","UX Writing","서비스 분석 및 기획 설계","프로젝트 유지 관리","원활한 커뮤니케이션"]}
+          list1={["HTML 코딩 및 웹퍼블리싱","Javascript, jQuery 코딩","프레임워크 (VUE, REACT)를 통한 웹사이트 구축","프로젝트 유지 관리"]}
           list2={["성실성, 협동심, 꼼꼼함, 적응성"]}
-          list3={["학력 : 초대졸이상","경력 : 경력1년↑(주임~대리급)","경력 : 경력5년↑(과장~차장급)"]}
+          list3={["학력 : 초대졸이상","경력 : 경력6년↑(과장~차장급)"]}
           onclick={()=>setVisible(visible === 3 ? 0 : 3)}
         />
       </div>
